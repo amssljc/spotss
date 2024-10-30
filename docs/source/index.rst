@@ -1,12 +1,11 @@
-SpatialScope
+Spotscope
 =============================================
 
-A unified approach for integrating spatial and single-cell transcriptomics data by leveraging deep generative models.
+An efficient tool for Enabling Bidirectional Querying of H\&E Images and Annotation Information
 
-With the learned gene expressions distribution from scRNA-seq reference, SpatialScope can resolve the spot-level seq-based ST data (e.g., Visium) into single-cell resolution. Besides, it can also impute unmeasured genes or correct low-quality genes when applied to higher resolution ST data such as Slideseq and MERFISH. 
-The inferred single-cell resolution transcriptome-wide expression levels can be applied to various downstream analysis, such as fine-grained cell gradients visualization, detection and visualization of spatially resolved cellular communication and identification of spatially DE genes.
+Spatial transcriptomics technologies allow researchers to enrich the annotation of H\&E images by integrating transcriptomics information. However, these annotations often come with high costs and low resolution. To address this issue, we propose a deep learning framework based on contrastive spot-image pretraining to enable efficient bidirectional querying between H\&E images and annotation information, named Spotscope. Spotscope not only performs super-resolution spot annotation directly from H\&E images but also generates corresponding histological images based on annotation information. We conducted experiments on four tasks: deconvolution, gene expression level prediction, tissue domain identification, and tumor region recognition. Compared to other methods, Spotscope achieves more accurate and detailed spot annotation, such as identifying heterogeneity within breast cancer tumors. Additionally, Spotscope can generate intermediate histological image patches based on customized annotations, such as transitions from normal tissue to cancerous tissue. 
 
-.. image:: mainfig-flowchat.jpg
+.. image:: Workflow.pdf
    :width: 800
    :align: center
 
@@ -15,13 +14,13 @@ The inferred single-cell resolution transcriptome-wide expression levels can be 
    This project is under active development.
 
  
-SpatialScope Manuscript
+Spotscope Manuscript
 ------------------
 
 coming soon...
 
 
-SpatialScope Installation & Usage
+Spotscope Installation & Usage
 ------------------
 
 .. toctree::
@@ -30,14 +29,14 @@ SpatialScope Installation & Usage
    installation 
    usage
 
-SpatialScope Tutorials
+Spotscope Tutorials
 ------------------
 
 .. toctree::
    :maxdepth: 2
 
-   notebooks/1
-   notebooks/2
-   notebooks/3
-   notebooks/4
+   notebooks/1MOB_infer_celltype
+   notebooks/2MOB_infer_marker
+   notebooks/3MOB_from_image
+   notebooks/4DLPFC_infer
 

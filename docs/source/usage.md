@@ -11,7 +11,7 @@ Spotscope有两个工作流程, 预训练和推断.
 对于预训练, 需要为每一个含有人工注释信息的切片准备Anndata格式的文件.
 例如, 链接.....
 其中Anndata格式的数据中, 必须包含以下内容:
-- 图片
+- Image
     要求:
 - `adata.uns['annotations']`:
 

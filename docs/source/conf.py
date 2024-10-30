@@ -3,12 +3,12 @@
 # -- Project information
 from recommonmark.parser import CommonMarkParser
 
-project = 'SpatialScope-tutorial'
-copyright = '2023, Xiaomeng Wan & Jiashun Xiao'
-author = 'Xiaomeng Wan & Jiashun Xiao'
+project = 'Spotscope'
+copyright = '2024, Jiacheng Leng'
+author = 'Jiacheng Leng'
 
-release = '0.1.0'
-version = '0.1.0'
+release = '1.0.0'
+version = '1.0.0'
 
 # -- General configuration
 
