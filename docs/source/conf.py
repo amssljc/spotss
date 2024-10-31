@@ -28,7 +28,7 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
-# templates_path = ['_templates']
+templates_path = ['_templates']
 
 # -- Options for HTML output
 
@@ -43,19 +43,8 @@ source_parsers = {
 source_suffix = ['.rst', '.md']
 
 
-# def setup(app):
-#     app.add_css_file('custom.css')
+def setup(app):
+    app.add_css_file('custom.css')
 
 
 html_static_path = ['_static']
-
-
-# {% extends "!layout.html" %}
-# {% block footer %}
-# {{ super() }}
-# <link rel="stylesheet" href="_static/custom.css" type="text/css">
-# <div id="custom-footer-content">
-#     <!-- 这里放置从 RevolverMaps 获取的 HTML/JavaScript 代码 -->
-#     <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5msw68d5wrj&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
-# </div>
-# {% endblock %}
