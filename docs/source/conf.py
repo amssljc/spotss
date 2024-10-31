@@ -44,7 +44,7 @@ source_suffix = ['.rst', '.md']
 
 
 def setup(app):
-    app.add_css_file('my_theme.css')
+    app.add_css_file('custom.css')
 
 
 html_static_path = ['_static']
