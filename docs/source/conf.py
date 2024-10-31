@@ -28,7 +28,7 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # -- Options for HTML output
 
@@ -43,8 +43,8 @@ source_parsers = {
 source_suffix = ['.rst', '.md']
 
 
-def setup(app):
-    app.add_css_file('custom.css')
+# def setup(app):
+#     app.add_css_file('custom.css')
 
 
 html_static_path = ['_static']
