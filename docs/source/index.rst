@@ -35,8 +35,8 @@ Spotscope Tutorials
 .. toctree::
    :maxdepth: 2
 
-   notebooks/1mob_infer_celltype
-   notebooks/2mob_infer_marker
-   notebooks/3mob_from_image
-   notebooks/4dlpfc_infer
+   notebooks/1MOB_infer_celltype
+   notebooks/2MOB_infer_marker
+   notebooks/3MOB_from_image
+   notebooks/4DLPFC_infer
 
