@@ -40,7 +40,7 @@ epub_show_urls = 'footnote'
 source_parsers = {
     '.md': CommonMarkParser,
 }
-source_suffix = ['.rst', '.md']
+source_suffix = ['.rst', '.md', '.ipynb']
 
 
 def setup(app):
