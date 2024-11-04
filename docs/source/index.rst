@@ -11,7 +11,7 @@ Spatial transcriptomics technologies allow researchers to enrich the annotation 
 
 .. note::
 
-   This project is under active development.
+   This project is under development.
 
  
 Spotscope Manuscript
