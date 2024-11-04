@@ -49,4 +49,4 @@ def setup(app):
 
 html_static_path = ['_static']
 
-html_logo = 'docs\source\logo.jpg'  # 替换为你的 logo 路径
+html_logo = 'docs/source/logo.jpg'  # 替换为你的 logo 路径
