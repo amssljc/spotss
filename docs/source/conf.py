@@ -48,5 +48,7 @@ def setup(app):
 
 
 html_static_path = ['_static']
-
+html_css_files = [
+    'custom.css',
+]
 html_logo = 'logo.jpg'  # 替换为你的 logo 路径

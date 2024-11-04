@@ -20,25 +20,16 @@ Spotscope Manuscript
 coming soon...
 
 
-Spotscope Installation & Usage
+Contents
 ------------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    installation 
    usage
-
-Spotscope Tutorials
-------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   notebooks/1MOB_infer_celltype
-   notebooks/2MOB_infer_marker
-   notebooks/3MOB_from_image
-   notebooks/4DLPFC_infer
+   tutorials
+   
 
 
 .. raw:: html
