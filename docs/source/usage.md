@@ -1,80 +1,76 @@
-## Data format preparetion
+## Data Format Preparation
 
+Spotscope has two main stage: pretraining and inference.  
+For [Stage 1: Pretraining](#stage-1-pretraining), Anndata format data needs to be prepared.  
+For [Stage 2: Inference](#stage-2-inference), there are two options: one is to use Anndata format, and the other is to perform inference directly from images.
 
-Spotscope有两个工作流程, 预训练和推断.
-对于预训练, 需要准备Anndata的数据格式.
-对于推断, 则有两种使用方式, 一种是使用Anndata格式, 另一种是直接从图片进行推断.
+### Stage 1: Pretraining
 
+For pretraining, an [Anndata](https://anndata.readthedocs.io/en/latest/) format file needs to be prepared for each slice containing manually annotated information.  
+For example, `adata = sc.Anndata(...)`  
+The Anndata format data must contain the following:
 
-### Stage1: Pretraining
-
-对于预训练, 需要为每一个含有人工注释信息的切片准备Anndata格式的文件.
-例如, 链接.....
-其中Anndata格式的数据中, 必须包含以下内容:
-- Image
-    要求:
-- `adata.uns['annotations']`:
-
-- `adata.uns['annotation_list']`:
-
-```
-python ./src/Nuclei_Segmentation.py --tissue heart --out_dir  ./output  --ST_Data ./demo_data/V1_Human_Heart_spatial.h5ad --Img_Data  ./demo_data/V1_Human_Heart_image.tif
-```
-
-Input:
-
-- --out_dir: output directory
-- --tissue: output sub-directory
-- --ST_Data: ST data file path
-- --Img_Data: H&E stained image data file path (require **raw** H&E image with high resolution, about **10000x10000** resolution, **500M** file size)
-
-This step will make `./output/heart` directory, and generate two files:
-
-- Visualization of nuclei segmentation results: nuclei_segmentation.png
-- Preprocessed ST data for cell type identification: sp_adata_ns.h5ad (**cell_locations** that contains spatial locations of segmented cells will be added to .uns)
-
-### Step2: Cell type identification
-
-```
-python ./src/Cell_Type_Identification.py --tissue heart --out_dir  ./output  --ST_Data ./output/heart/sp_adata_ns.h5ad --SC_Data ./Ckpts_scRefs/Heart_D2/Ref_Heart_sanger_D2.h5ad --cell_class_column cell_type
-```
-
-Input:
-
-- --out_dir: output directory
-- --tissue: output sub-directory
-- --ST_Data: ST data file path (generated in Step 1)
-- --SC_Data: single-cell reference data file path (When using your own scRef file, we recommend adding a **Marker** column to the .var to pre-select several thousand marker or highly variable genes as in "./Ckpts_scRefs/Heart_D2/Ref_Heart_sanger_D2.h5ad")
-- --cell_class_column: cell class label column in scRef file
+- **H&E tissue images**, `adata.uns['spatial']`:  
+  Requirements:  
+  1. Each tissue slice should ideally be 10000*10000 pixels in size.  
+  2. JPG format.  
+  3. Save it in `adata.uns['spatial']['test']['images']`, refer to the following code:
   
-This step will generate three files:
+    ```python
+    from PIL import Image
+    import numpy as np
 
-- Visualization of cell type identification results: estemated_ct_label.png
-- Cell type identification results: CellTypeLabel_nu10.csv
-- Preprocessed ST data for gene expression decomposition: sp_adata.h5ad
+    img_path = f"/path/to/HE_image.jpg"
+    image = Image.open(img_path)
+    image_array = np.array(image)
 
+    adata_st.uns["spatial"] = {
+        "test": {
+            "images": {
+                "hires": image_array,
+            },
+            "scalefactors": {
+                "tissue_hires_scalef": 1,  
+                "spot_diameter_fullres": 150
+            },
+        },
+    }
+    ```
 
-### Step3: Gene expression decomposition
+- **Spatial coordinates**, `adata.obsm['spatial']`:  
+  The spatial coordinates of each spot need to match the pixel points of the image.
 
-```
-python ./src/Decomposition.py --tissue heart --out_dir  ./output --SC_Data ./Ckpts_scRefs/Heart_D2/Ref_Heart_sanger_D2.h5ad --cell_class_column cell_type  --ckpt_path ./Ckpts_scRefs/Heart_D2/model_5000.pt --spot_range 0,100 --gpu 0,1,2,3
-```
+- **Numerical annotation data**, `adata.obsm['annotations']`:  
+  This includes the annotation information for each spot, with a shape of $(N, D)$, where $N$ is the number of spots and $D$ is the dimensionality of the annotation information. For example:
+  
+    ```python
+    array([[0.86716461, 0.04292905, 0.17157004, 0.00519644],
+        [0.29841931, 0.2669554 , 0.29310532, 0.4259347 ],
+        [0.30084642, 0.23525733, 0.18911946, 0.77140415],
+        ...,
+        [0.40642839, 0.20846453, 0.4081279 , 0.30388277],
+        [0.24152377, 0.15219514, 0.28287087, 0.1691436 ],
+        [0.39927267, 0.26519486, 0.20757229, 0.4316468 ]])
+    ```
 
-Input:
+    > Continuous annotation data should be normalized to the range $[0,1]$, while discrete annotation data only needs to be one-hot encoded.
 
-- --out_dir: output directory
-- --tissue: output sub-directory
-- --SC_Data: single-cell reference data file path 
-- --cell_class_column: cell class label column in scRef file
-- --ckpt_path: model checkpoint file path (As the model checkpoint was trained on scRef file, the checkpoint and scRef file much be matched)
-- --spot_range: limited by GPU memory, we can only handle at most about 1000 spots in 4 GPUs at a time. e.g., 0,1000 means 0 to 1000-th spot
-- --gpu: Visible GPUs
+- **Annotation list**, `adata.uns['annotation_list']`:  
+  A list of strings that contains the meaning of each dimension for the annotation information. For example, for a cell-type deconvolution task, it might look like:
+  
+    ```python
+    array(['GC', 'M/TC', 'PGC', 'OSNs'], dtype=object)
+    ```
 
-This step will generate one file:
+### Stage 2: Inference
+For the inference stage, there are two input formats:
 
-- Single-cell resolution ST data generated by SpatialScope for spot 0-100: generated_cells_spot0-100.h5ad
+1. As in the pretraining stage, input an Anndata class containing all information except `adata.uns['annotations']`.  
+   Reference: [1MOB_infer_celltype](notebooks/1MOB_infer_celltype.ipynb)
 
+2. Directly input the image and the annotation list. Spotscope will automatically detect the positions of the spots in the image and extract the coordinate information.  
+   Reference: [3MOB_from_image](notebooks/3MOB_from_image.ipynb)
 
-### Contact information
+### Contact Information
 
-Please contact Xiaomeng Wan (xwanaf@connect.ust.hk), Jiashun Xiao (jxiaoae@connect.ust.hk) or Prof. Can Yang (macyang@ust.hk) if any enquiry.
+Please contact Jiacheng Leng (amssljc@163.com) if you have any problems.
