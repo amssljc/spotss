@@ -1,4 +1,4 @@
-## Data Format Preparation
+# Data Preparation
 
 Spotscope has two main stage: pretraining and inference.  
 For [Stage 1: Pretraining](#stage-1-pretraining), Anndata format data needs to be prepared.  
@@ -63,6 +63,7 @@ The Anndata format data must contain the following:
     ```
 
 ### Stage 2: Inference
+
 For the inference stage, there are two input formats:
 
 1. As in the pretraining stage, input an Anndata class containing all information except `adata.uns['annotations']`.  
@@ -73,4 +74,4 @@ For the inference stage, there are two input formats:
 
 ### Contact Information
 
-Please contact Jiacheng Leng (amssljc@163.com) if you have any problems.
+Please contact Jiacheng Leng (<amssljc@163.com>) if you have any problems.
