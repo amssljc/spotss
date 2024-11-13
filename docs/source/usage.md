@@ -1,4 +1,4 @@
-# Data Preparation
+<!-- # Data Preparation
 
 Spotscope has two main stage: pretraining and inference.  
 For [Stage 1: Pretraining](#stage-1-pretraining), Anndata format data needs to be prepared.  
@@ -70,7 +70,7 @@ For the inference stage, there are two input formats:
    Reference: [1MOB_infer_celltype](notebooks/1MOB_infer_celltype.ipynb)
 
 2. Directly input the image and the annotation list. Spotscope will automatically detect the positions of the spots in the image and extract the coordinate information.  
-   Reference: [3MOB_from_image](notebooks/3MOB_from_image.ipynb)
+   Reference: [3MOB_from_image](notebooks/3MOB_from_image.ipynb) -->
 
 ### Contact Information
 
