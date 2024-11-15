@@ -42,19 +42,19 @@ The Anndata format data must contain the following:
   The spatial coordinates of each spot need to match the pixel points of the image.
 
 - **Numerical annotation data**, ``adata.obsm['annotations']``:  
-  This includes the annotation information for each spot, with a shape of $(N, D)$, where $N$ is the number of spots and $D$ is the dimensionality of the annotation information. For example:
+  This includes the annotation information for each spot, with a shape of :math:`(N, D)`, where :math:`N` is the number of spots and :math:`D` is the dimensionality of the annotation information. For example:
   
     .. code-block:: python
         array([[0.86716461, 0.04292905, 0.17157004, 0.00519644],
-            [0.29841931, 0.2669554 , 0.29310532, 0.4259347 ],
-            [0.30084642, 0.23525733, 0.18911946, 0.77140415],
-            ...,
-            [0.40642839, 0.20846453, 0.4081279 , 0.30388277],
-            [0.24152377, 0.15219514, 0.28287087, 0.1691436 ],
-            [0.39927267, 0.26519486, 0.20757229, 0.4316468 ]])
+               [0.29841931, 0.2669554 , 0.29310532, 0.4259347 ],
+               [0.30084642, 0.23525733, 0.18911946, 0.77140415],
+               ...,
+               [0.40642839, 0.20846453, 0.4081279 , 0.30388277],
+               [0.24152377, 0.15219514, 0.28287087, 0.1691436 ],
+               [0.39927267, 0.26519486, 0.20757229, 0.4316468 ]])
 
     .. note::
-     Continuous annotation data should be normalized to the range $[0,1]$, while discrete annotation data only needs to be one-hot encoded.
+       Continuous annotation data should be normalized to the range :math:`[0, 1]`, while discrete annotation data only needs to be one-hot encoded.
 
 - **Annotation list**, ``adata.uns['annotation_list']``:  
   A list of strings that contains the meaning of each dimension for the annotation information. For example, for a cell-type deconvolution task, it might look like:
