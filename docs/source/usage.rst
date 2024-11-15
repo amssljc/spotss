@@ -17,7 +17,7 @@ The Anndata format data must contain the following:
   1. Each tissue slice should ideally be 10000*10000 pixels in size.  
   2. JPG format.  
   3. Save it in ``adata.uns['spatial']['test']['images']``, refer to the following code:
-  
+
     .. code-block:: python
         from PIL import Image
         import numpy as np
@@ -76,6 +76,6 @@ For the inference stage, there are two input formats:
 Contact Information
 -------------------
 
-Please contact Jiacheng Leng (amssljc@163.com) if you have any problems.
+Please contact Jiacheng Leng (<amssljc@163.com>) if you have any problems.
 
 .. _Anndata: https://anndata.readthedocs.io/en/latest/
