@@ -76,6 +76,6 @@ For the inference stage, there are two input formats:
 Contact Information
 -------------------
 
-Please contact Jiacheng Leng (<amssljc@163.com>) if you have any problems.
+Please contact Jiacheng Leng (amssljc@163.com) if you have any problems.
 
 .. _Anndata: https://anndata.readthedocs.io/en/latest/
