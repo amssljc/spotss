@@ -67,9 +67,9 @@ Requirements:
 - **Annotation list**, ``adata.uns['annotation_list']``:  
   A list of strings that contains the meaning of each dimension for the annotation information. For example, for a cell-type deconvolution task, it might look like:
   
-.. code-block:: python
+  .. code-block:: python
 
-    array(['GC', 'M/TC', 'PGC', 'OSNs'], dtype=object)
+      array(['GC', 'M/TC', 'PGC', 'OSNs'], dtype=object)
 
 
 .. _stage-2-inference:
