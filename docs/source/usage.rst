@@ -52,6 +52,7 @@ Requirements:
   This includes the annotation information for each spot, with a shape of :math:`(N, D)`, where :math:`N` is the number of spots and :math:`D` is the dimensionality of the annotation information. For example:
   
 .. code-block:: python
+  
     array([[0.86716461, 0.04292905, 0.17157004, 0.00519644],
             [0.29841931, 0.2669554 , 0.29310532, 0.4259347 ],
             [0.30084642, 0.23525733, 0.18911946, 0.77140415],
@@ -67,6 +68,7 @@ Requirements:
   A list of strings that contains the meaning of each dimension for the annotation information. For example, for a cell-type deconvolution task, it might look like:
   
 .. code-block:: python
+
     array(['GC', 'M/TC', 'PGC', 'OSNs'], dtype=object)
 
 
