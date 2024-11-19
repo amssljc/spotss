@@ -30,7 +30,7 @@ Installation Guidance
     
     .. note::
 
-        Match the torch version with CUDA!!!**
+        Match the torch version with CUDA!!!
    
     .. code-block:: bash
 
@@ -54,5 +54,5 @@ Installation Guidance
 - Or install Spotscope through pypi.
 
     .. code-block:: bash
-        
+
         pip install spotscope
