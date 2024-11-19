@@ -28,6 +28,7 @@ Contents
 
    installation 
    usage
+   test
    tutorials
    
 
