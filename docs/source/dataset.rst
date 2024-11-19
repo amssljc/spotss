@@ -35,8 +35,8 @@ Dataset functions
 
 
 .. function:: build_train_loaders(batch_size, dataset_paths, train_ratio=0.9, task='discrete', pin_memory=True, num_workers=5)
-
     :noindex:
+
     Constructs and returns DataLoader objects for both training and testing subsets of the dataset.
 
     :param batch_size: An integer specifying the number of items per batch.
@@ -50,8 +50,8 @@ Dataset functions
 
 
 .. function:: build_loaders_references(dataset_paths, num_workers=5)
-
     :noindex:
+
     Creates DataLoader for reference datasets from a list of Anndata files.
 
     :param dataset_paths: A list of strings, where each string is a path to an h5ad file.
@@ -62,8 +62,8 @@ Dataset functions
 
 
 .. function:: build_loaders_querys(adata, num_workers=5)
-
     :noindex:
+
     Builds a DataLoader for querying datasets based on provided AnnData.
 
     :param adata: An AnnData object containing the dataset for querying.
@@ -74,8 +74,8 @@ Dataset functions
 
 
 .. function:: load_reference_datasets(adata, dataset_paths)
-
     :noindex:
+
     Loads reference datasets and updates the provided AnnData object with DataLoader and dataset information.
 
     :param adata: The AnnData object to update.
@@ -85,8 +85,8 @@ Dataset functions
 
 
 .. function:: load_query_datasets(adata)
-
     :noindex:
+
     Loads query datasets into the provided AnnData object.
 
     :param adata: The AnnData object to update.
