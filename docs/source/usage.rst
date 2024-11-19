@@ -76,10 +76,10 @@ Stage 2: Inference
 For the inference stage, there are two input formats:
 
 1. As in the pretraining stage, input an Anndata class containing all information except ``adata.uns['annotations']``.  
-   Reference: :doc:`1MOB_infer_celltype <notebooks/1MOB_infer_celltype.ipynb>`
+   Reference: :doc:`1MOB_infer_celltype <notebooks/1MOB_infer_celltype>`
 
 2. Directly input the image and the annotation list. Spotscope will automatically detect the positions of the spots in the image and extract the coordinate information.  
-   Reference: :doc:`3MOB_from_image <notebooks/3MOB_from_image.ipynb>`
+   Reference: :doc:`3MOB_from_image <notebooks/3MOB_from_image>`
 
 Contact Information
 -------------------
