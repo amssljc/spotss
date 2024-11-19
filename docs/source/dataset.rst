@@ -1,9 +1,6 @@
 Dataset functions
 ================
 
-CLIPDataset class
------------------
-
 .. class:: CLIPDataset(adata_st, annotation=True, transform=True, patch_size=224)
 
    Initializes a dataset object for handling spatial transcriptomics data, allowing for optional data transformations and annotations.
@@ -35,8 +32,6 @@ CLIPDataset class
 
       :return: An integer count of the number of data items in the dataset.
 
-build_train_loaders function
-----------------------------
 
 .. function:: build_train_loaders(batch_size, dataset_paths, train_ratio=0.9, task='discrete', pin_memory=True, num_workers=5)
 
@@ -51,8 +46,6 @@ build_train_loaders function
 
    This function splits the dataset into training and testing portions, optionally applying weighted sampling for imbalanced datasets in discrete tasks.
 
-build_loaders_references function
----------------------------------
 
 .. function:: build_loaders_references(dataset_paths, num_workers=5)
 
@@ -64,8 +57,6 @@ build_loaders_references function
 
    This function reads the annotation list from the first dataset, constructs a DataLoader for multiple datasets, and prints the construction status.
 
-build_loaders_querys function
------------------------------
 
 .. function:: build_loaders_querys(adata, num_workers=5)
 
@@ -77,8 +68,6 @@ build_loaders_querys function
 
    This function constructs a DataLoader for the querying process and provides feedback on the loader construction.
 
-load_reference_datasets function
---------------------------------
 
 .. function:: load_reference_datasets(adata, dataset_paths)
 
@@ -89,8 +78,6 @@ load_reference_datasets function
 
    If dataset_paths is None, it checks for existing annotations in the AnnData object, raises an assertion error if not found, and then updates the AnnData object with reference dataset information.
 
-load_query_datasets function
-----------------------------
 
 .. function:: load_query_datasets(adata)
 
