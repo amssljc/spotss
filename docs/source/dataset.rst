@@ -14,20 +14,23 @@ Dataset functions
     This class loads high-resolution tissue images and associated spatial data from an AnnData object, applying optional image transformations such as random flips and rotations if enabled.
 
     .. method:: transform_img(image)
-        
+        :noindex:
+
         Applies random transformations to an image, including horizontal flips, vertical flips, and rotations by 0, 90, 180, or 270 degrees.
 
         :param image: A numpy array representing the image to be transformed.
         :return: The transformed image as a numpy array.
 
     .. method:: __getitem__(idx)
-        
+        :noindex:
+
         Retrieves a single data item from the dataset by index, including image data and optionally annotations.
 
         :param idx: An integer index specifying the data item to retrieve.
         :return: A dictionary containing transformed image data, spatial coordinates, and optionally annotations.
 
     .. method:: __len__()
+        :noindex:
         
         Returns the number of items in the dataset.
 
