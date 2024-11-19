@@ -1,4 +1,4 @@
-# Data Preparation
+# Data Preparation1
 
 Spotscope has two main stages: pretraining and inference.  
 For [Stage 1: Pretraining](#stage-1-pretraining), Anndata format data needs to be prepared.  
