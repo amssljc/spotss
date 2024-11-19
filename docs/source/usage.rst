@@ -17,30 +17,33 @@ For example, ``adata = sc.Anndata(...)``
 The Anndata format data must contain the following:
 
 - **H&E tissue images**, ``adata.uns['spatial']``:  
+
 Requirements:  
-1. Each tissue slice should ideally be 10000*10000 pixels in size.  
-2. JPG format.  
-3. Save it in ``adata.uns['spatial']['test']['images']``, refer to the following code:
 
-.. code-block:: python
-    from PIL import Image
-    import numpy as np
+  1. Each tissue slice should ideally be 10000*10000 pixels in size.  
+  2. JPG format.  
+  3. Save it in ``adata.uns['spatial']['test']['images']``, refer to the following code:
 
-    img_path = f"/path/to/HE_image.jpg"
-    image = Image.open(img_path)
-    image_array = np.array(image)
+  .. code-block:: python
+    
+      from PIL import Image
+      import numpy as np
 
-    adata_st.uns["spatial"] = {
-        "test": {
-            "images": {
-                "hires": image_array,
-            },
-            "scalefactors": {
-                "tissue_hires_scalef": 1,  
-                "spot_diameter_fullres": 150
-            },
-        },
-    }
+      img_path = f"/path/to/HE_image.jpg"
+      image = Image.open(img_path)
+      image_array = np.array(image)
+
+      adata_st.uns["spatial"] = {
+          "test": {
+              "images": {
+                  "hires": image_array,
+              },
+              "scalefactors": {
+                  "tissue_hires_scalef": 1,  
+                  "spot_diameter_fullres": 150
+              },
+          },
+      }
 
 - **Spatial coordinates**, ``adata.obsm['spatial']``:  
   The spatial coordinates of each spot need to match the pixel points of the image.
@@ -76,10 +79,10 @@ Stage 2: Inference
 For the inference stage, there are two input formats:
 
 1. As in the pretraining stage, input an Anndata class containing all information except ``adata.uns['annotations']``.  
-   Reference: :doc:`1MOB_infer_celltype <notebooks/1MOB_infer_celltype>`
+   Reference: :doc:`Cell type deconvolution <notebooks/1MOB_infer_celltype>`
 
 2. Directly input the image and the annotation list. Spotscope will automatically detect the positions of the spots in the image and extract the coordinate information.  
-   Reference: :doc:`3MOB_from_image <notebooks/3MOB_from_image>`
+   Reference: :doc:`Cell type deconvolution (directly from H&E image) <notebooks/3MOB_from_image>`
 
 Contact Information
 -------------------
