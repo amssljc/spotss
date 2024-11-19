@@ -34,4 +34,4 @@ Contents
 
 .. raw:: html
 
-    <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=HLMdu7klVRTIWHMvC9dsMGleiefMvl3nl-izycNtN8I"></script>
+   <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=f4f2db&w=500&t=tt&d=1DqwXyIGX8ZkcXtuo_R3HJsfiyjlh91qrMRur_qpycU&co=99d9f2&cmo=30db7c&cmn=107525&ct=ffffff'></script>
