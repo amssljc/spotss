@@ -29,7 +29,7 @@ Contents
    installation 
    usage
    tutorials
-   
+   functions
 
 
 .. raw:: html
