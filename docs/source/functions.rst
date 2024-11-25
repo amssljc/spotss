@@ -19,7 +19,7 @@ Core functions
 .. function:: infer(adata, topk=20, lower_perc=0.1, mode="advanced", device="cuda:0", annotation_type="continuous")
    :noindex:
 
-   Infer the cell type or status of spots within an AnnData object using specified inference parameters.
+   Infer the annotations of spots within an AnnData object using specified inference parameters.
 
    :param AnnData adata: An AnnData object containing the data.
    :param int topk: Number of top matches to consider for inference.
@@ -32,7 +32,7 @@ Core functions
 .. function:: super_infer(adata, scale=2, distance_threshold=160, topk=20, lower_perc=0.1, mode="basic", annotation_type="continuous", device="cuda:0")
    :noindex:
 
-   Perform super-resolution inference to identify cell type or status of spots at a higher spatial resolution.
+   Perform super-resolution inference to identify annotations of spots at a higher spatial resolution.
 
    :param AnnData adata: An AnnData object containing the data.
    :param int scale: Scale factor for super-resolution.
@@ -47,7 +47,7 @@ Core functions
 .. function:: infer_from_image(image_path, model_path, reference_adata_paths=None, model=CLIPModel(), grid_size=112, density_threshold=0.9, mode="basic", topk=20, lower_perc=0.2, annotation_type="discrete", annotation_list=None, device='cuda:0')
    :noindex:
 
-   Infer cell type or status of spots directly from an image file using a pre-trained model.
+   Infer annotations of spots directly from an image file using a pre-trained model.
 
    :param str image_path: Path to the input image file.
    :param str model_path: Path to the pre-trained model.
