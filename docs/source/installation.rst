@@ -1,4 +1,4 @@
-Installation Guidance
+Installation
 ====================
 
 0. Requirements
