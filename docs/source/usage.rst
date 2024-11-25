@@ -18,7 +18,7 @@ The Anndata format data must contain the following:
 
 - **H&E tissue images**, ``adata.uns['spatial']``:  
 
-Requirements:  
+  Requirements:  
 
   1. Each tissue slice should ideally be 10000*10000 pixels in size.  
   2. JPG format.  
@@ -61,11 +61,12 @@ Requirements:
               [0.24152377, 0.15219514, 0.28287087, 0.1691436 ],
               [0.39927267, 0.26519486, 0.20757229, 0.4316468 ]])
 
-.. note::
+  .. note::
+    
     Continuous annotation data should be normalized to the range :math:`[0, 1]`, while discrete annotation data only needs to be one-hot encoded.
 
 - **Annotation list**, ``adata.uns['annotation_list']``:  
-  A list of strings that contains the meaning of each dimension for the annotation information. For example, for a cell-type deconvolution task, it might look like:
+  A list of strings that contains the meaning of each dimension for the annotation information. For example, for a cell-type deconvolution task with :math:`D=4`, it might look like:
   
   .. code-block:: python
 
@@ -80,10 +81,12 @@ Stage 2: Inference
 
 For the inference stage, there are two input formats:
 
-1. As in the pretraining stage, input an Anndata class containing all information except ``adata.uns['annotations']``.  
+1. As in the pretraining stage, input an Anndata class containing all information except ``adata.uns['annotations']``. 
+
    Reference: :doc:`Cell type deconvolution <notebooks/1MOB_infer_celltype>`
 
 2. Directly input the image and the annotation list. Spotscope will automatically detect the positions of the spots in the image and extract the coordinate information.  
+
    Reference: :doc:`Cell type deconvolution (directly from H&E image) <notebooks/3MOB_from_image>`
 
 Contact Information
